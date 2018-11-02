@@ -29,6 +29,13 @@ npm run deploy
 -  react components always contain `JSX` syntax, in TypeScript environment, the extension of these files must need to be `.tsx`.
 - simple js file , their extension must need to be `.ts`.
 
+
+### about linting
+- eslint is not capable for TypeScript 
+- install `tslint` in local or global. if you run `npm install`, you will install `tslint` locally, since I put that dependency in `package.json`
+- your IDE must need to install proper lint extension to collaborate with tslint, I use `TypeScript TSLint Plugin` in vs-code
+- use your lint rule in `tslint.json` file. [doc](https://github.com/palantir/tslint)
+
 ### learning resource
 - great docs from [Microsoft TypeScript offical website](https://www.typescriptlang.org/index.html)
 - [Traversy Media  Crash course](https://www.youtube.com/watch?v=rAy_3SIqT-E)
