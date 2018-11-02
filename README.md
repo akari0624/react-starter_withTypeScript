@@ -24,3 +24,11 @@ npm run dist
 ```
 npm run deploy 
 ```
+
+### write your code
+-  react components always contain `JSX` syntax, in TypeScript environment, the extension of these files must need to be `.tsx`.
+- simple js file , their extension must need to be `.ts`.
+
+### learning resource
+- great docs from [Microsoft TypeScript offical website](https://www.typescriptlang.org/index.html)
+- [Traversy Media  Crash course](https://www.youtube.com/watch?v=rAy_3SIqT-E)
