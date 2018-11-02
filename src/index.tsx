@@ -5,7 +5,8 @@ import {createStore, applyMiddleware} from 'redux'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import reducers from './reducers'
 
-import indexRouter from './mainpage'
+import indexRoute from './mainpage'
+import counterRoute from './counter'
 
 
 const createStoreWithMiddleware = applyMiddleware()(createStore)
@@ -28,7 +29,8 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/" component={indexRouter}/>
+          <Route path="/counter" component={counterRoute}/>
+          <Route path="/" component={indexRoute}/>
         </Switch>
       </div>
     </BrowserRouter>
