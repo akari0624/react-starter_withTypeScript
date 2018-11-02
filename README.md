@@ -34,7 +34,8 @@ npm run deploy
 - eslint is not capable for TypeScript 
 - install `tslint` in local or global. if you run `npm install`, you will install `tslint` locally, since I put that dependency in `package.json`
 - your IDE must need to install proper lint extension to collaborate with tslint, I use `TypeScript TSLint Plugin` in vs-code
-- use your lint rule in `tslint.json` file. [doc](https://github.com/palantir/tslint)
+- use your lint rule in `tslint.json` file. [doc] (https://github.com/palantir/tslint)
+[tslint.json example](https://palantir.github.io/tslint/usage/configuration/)
 
 ### learning resource
 - great docs from [Microsoft TypeScript offical website](https://www.typescriptlang.org/index.html)

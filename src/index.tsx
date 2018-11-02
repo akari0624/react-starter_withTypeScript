@@ -10,7 +10,7 @@ import indexRouter from './mainpage'
 
 const createStoreWithMiddleware = applyMiddleware()(createStore)
 
-let appStore:any;
+let appStore: any;
 
 if(process.env.NODE_ENV === 'production'){
 
@@ -18,7 +18,7 @@ if(process.env.NODE_ENV === 'production'){
 
 }else{
   appStore = createStoreWithMiddleware(
-    reducers,  
+    reducers,
     /**  force cast~  https://github.com/zalmoxisus/redux-devtools-extension/issues/134#issuecomment-379861240 */
     (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__())
 }
