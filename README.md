@@ -32,3 +32,4 @@ npm run deploy
 ### learning resource
 - great docs from [Microsoft TypeScript offical website](https://www.typescriptlang.org/index.html)
 - [Traversy Media  Crash course](https://www.youtube.com/watch?v=rAy_3SIqT-E)
+- [piotrwitek/react-redux-typescript-guide](https://github.com/piotrwitek/react-redux-typescript-guide/blob/master/README.md)
