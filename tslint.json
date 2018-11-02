@@ -1,0 +1,10 @@
+{
+  "extends": ["tslint:recommended"],
+  "rules": {},
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts"
+    ]
+  }
+}
