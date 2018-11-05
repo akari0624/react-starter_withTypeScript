@@ -41,8 +41,7 @@ export default class SearchInput extends Component<ISearchInputProps, ISearchInp
     })
   }
 
-  onSearchClick = (e: any) => {
-
+  handleGetTVMazeData = () => {
     const {searchTerm} = this.state
 
     if (!searchTerm) {
@@ -52,11 +51,26 @@ export default class SearchInput extends Component<ISearchInputProps, ISearchInp
     getTVMazeData(searchTerm, this.props.afterTVMazeDataFetchComplete)
   }
 
+  onSearchClick = (e: any) => {
+
+    this.handleGetTVMazeData()
+  }
+
+  onInputEnterPressDown = (e: any) => {
+
+   e.preventDefault()
+
+   this.handleGetTVMazeData()
+
+  }
+
   render() {
     return (
       <div>
-        <SearchInputTextBar type="text" onChange={this.onSearchTextInput} value={this.state.searchTerm}/>
-        <ExecuteSearchButton onClick={this.onSearchClick} >{`Search`}</ExecuteSearchButton>
+        <form onSubmit={this.onInputEnterPressDown} >
+          <SearchInputTextBar type="text" onChange={this.onSearchTextInput} value={this.state.searchTerm}/>
+          <ExecuteSearchButton onClick={this.onSearchClick} >{`Search`}</ExecuteSearchButton>
+        </form>
       </div>
     )
   }
