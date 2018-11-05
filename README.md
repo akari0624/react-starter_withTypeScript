@@ -11,7 +11,7 @@ npm install    # install all the 3rd-Party dependencies
 
 ### when compile...
   - this boilerplate use webpack [ts-loader](https://github.com/TypeStrong/ts-loader) as a bridge between TypeScript and webpack. In this way, you can write TypeScript, enjoy the benefenit from Type-Checking and your javaScript also can be bundled and you still can code in a enjoyable develop environment( thanks to amazing webpack devServer!).
-  - You may want to check more about the `faster-builds` paragraph from `ts-loader` [doc]((https://github.com/TypeStrong/ts-loader#faster-builds)) to see more about the more implementation detail.
+  - You may want to check more about the `faster-builds` paragraph from `ts-loader` [doc](https://github.com/TypeStrong/ts-loader#faster-builds) to see more about the more implementation detail.
 
 ### scripts
 ```
