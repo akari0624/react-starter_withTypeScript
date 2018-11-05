@@ -6,15 +6,15 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import reducers from './reducers'
 
 import IndexRoute from './mainpage'
-import CounterRoute from './counter'
-import TodoMVCRoute from './todos'
-import TVMazeList from './callAPIThenGenerateList'
+import CounterRoute from './examples/counter'
+import TodoMVCRoute from './examples/todos'
+import TVMazeList from './examples/callAPIThenGenerateList'
 
 const createStoreWithMiddleware = applyMiddleware()(createStore)
 
 let appStore: any;
 
-if (process.env.NODE_ENV === 'production'){
+if (process.env.NODE_ENV === 'production') {
 
   appStore = createStoreWithMiddleware(reducers)
 
