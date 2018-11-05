@@ -1,15 +1,15 @@
 import React, {Component} from 'react'
-import axios from 'axios'
 import Styled from 'styled-components'
 import { ITVMazeData, Show, Image } from '../entity/TVMazeData'
+import { getTVMazeData } from '../viewModels'
+
 
 interface IState {
-  errorMsg: string,
-  tvMazeData: ITVMazeData[],
 }
 
-interface TVMazeProps {
-
+interface ITVMazeProps {
+  tvMazeData: ITVMazeData[],
+  afterTVMazeDataFetchComplete: (errorMsg: string, tvMazeData: ITVMazeData[]) => void,
 }
 
 const TVMazeShowArticle = Styled.article`
@@ -18,28 +18,15 @@ const TVMazeShowArticle = Styled.article`
   border:1px solid #000000;
  `
 
-export default class ListMain extends Component<TVMazeProps, IState> {
+export default class ListMain extends Component<ITVMazeProps, IState> {
 
-  readonly tvmazeBaseURL: string = 'http://api.tvmaze.com/search/shows?q='
-
-  readonly state: IState = {
-    errorMsg: '',
-    tvMazeData: [],
-  };
-
-  constructor(props: TVMazeProps) {
+  constructor(props: ITVMazeProps) {
      super(props)
   }
 
   componentWillMount() {
 
-    this.getTVMazeData('snoopy')
-  }
-
-  getTVMazeData = (serachWords: string) => {
-    const pResult = axios.get(`${this.tvmazeBaseURL}${serachWords}`)
-
-    pResult.then(p => this.setState({tvMazeData: p.data})).catch(err => this.setState({errorMsg: err}))
+    getTVMazeData('snoopy', this.props.afterTVMazeDataFetchComplete)
   }
 
   renderImage = (show: Show): any => {
@@ -74,7 +61,9 @@ export default class ListMain extends Component<TVMazeProps, IState> {
 
   render() {
     return (
-      <React.Fragment>{this.renderTVMazeList(this.state.tvMazeData)}</React.Fragment>
+      <React.Fragment>
+        {this.renderTVMazeList(this.props.tvMazeData)}
+      </React.Fragment>
     )
   }
 }
