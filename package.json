@@ -5,7 +5,8 @@
   "main": "index.js",
   "repository": "",
   "scripts": {
-    "start": "webpack-dev-server --public-host --config ./webpack.config.dev.js --mode development ",
+    "dev": "webpack-dev-server --public-host --config ./webpack.config.dev.js --mode development ",
+    "fastbuild_dev": "webpack-dev-server --public-host --config ./webpack.config.dev.fastbuild.js --mode development ",
     "clean": "rimraf dist/*",
     "dist": "NODE_END=production npm run clean && webpack --config ./webpack.config.prod.js --progress --bail --env dist -p",
     "test": "mocha --compilers js:babel-core/register --require babel-polyfill ./test/test_helper.js --recursive ./test",
@@ -44,6 +45,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "file-loader": "^1.1.11",
+    "fork-ts-checker-webpack-plugin": "^0.4.14",
     "gh-pages": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
     "install": "^0.10.1",

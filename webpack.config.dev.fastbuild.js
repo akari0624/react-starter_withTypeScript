@@ -2,7 +2,9 @@
 
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+var ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const webpack = require('webpack');
+
 
 module.exports = {
   entry: [
@@ -24,7 +26,10 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true // IMPORTANT! use transpileOnly mode to speed-up compilation
+        },
         exclude: /node_modules/
       },
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
@@ -66,6 +71,7 @@ module.exports = {
       template: path.resolve(__dirname, 'index.html'),
       filename: './index.html'
     }),
+    new ForkTsCheckerWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
