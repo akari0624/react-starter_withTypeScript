@@ -1,14 +1,22 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import Styled from 'styled-components'
+import { ITVMazeData, Show, Image } from './entity/TVMazeData'
 
 interface IState {
   errorMsg: string,
-  tvMazeData: any[],
+  tvMazeData: ITVMazeData[],
 }
 
 interface TVMazeProps {
 
 }
+
+ const TVMazeShowArticle = Styled.article`
+   text-align:center;
+   margin:10px 30px 10px 30px;
+   border:1px solid #000000;
+ `
 
 export default class ListMain extends Component<TVMazeProps, IState> {
 
@@ -34,13 +42,33 @@ export default class ListMain extends Component<TVMazeProps, IState> {
     pResult.then(p => this.setState({tvMazeData: p.data})).catch(err => this.setState({errorMsg: err}))
   }
 
-  renderTVMazeList = (tvMazeData: any[]) => {
+  renderImage = (show: Show): any => {
+    let imageMediumUrl
+    const pImage: Image = show.image
+    if (pImage) {
+      imageMediumUrl =  pImage.medium ?  pImage.medium : undefined
+    }
+
+    if (imageMediumUrl) {
+      return <img src={imageMediumUrl} />
+    }
+
+    return <div>{`暫無圖片`}</div>
+  }
+
+  renderTVMazeList = (tvMazeData: ITVMazeData[]) => {
     if (tvMazeData.length === 0) {
       return <div>{`讀取中...`}</div>
     }
-
+ 
     return (
-      tvMazeData.map(d => <div key={d.show.id}>{d.show.name}</div>)
+      tvMazeData.map(d => (
+        <TVMazeShowArticle  key={d.show.id}>
+          <div>{d.show.name}</div>
+          <div>{this.renderImage(d.show)}</div>
+          <div>{d.show.summary}</div>
+        </TVMazeShowArticle>)
+      )
     )
   }
 
