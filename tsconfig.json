@@ -6,10 +6,10 @@
     "module": "es6",
     "target": "es5",
     "jsx": "react",
-    "allowJs": true,
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,  /* allow the import syntax don't need to be `import * as React from 'react'`*/
     "esModuleInterop": true,
-    "moduleResolution": "node"             /* make ts compiler include type definitions linked in package.json files*/
+    "moduleResolution": "node"           /* make ts compiler include type definitions linked in package.json files*/
   },
   "include": [
     "./src"

@@ -6,12 +6,19 @@
     "indent": [true, "spaces", 2],
     "arrow-parens": [true, "ban-single-arg-parens"],
     "ordered-imports": false,
-    "member-access": [true, "no-public"]
-  },
+    "member-access": [true, "no-public"],
+    "typedef-whitespace": [
+      true,
+      {
+        "property-declaration": "nospace"
+      },
+      {
+        "property-declaration": "space"
+      }],
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
       "node_modules/**/*.ts"
     ]
   }
-}
+}}
