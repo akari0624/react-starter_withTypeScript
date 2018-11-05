@@ -20,7 +20,7 @@ npm run start
 npm run dist
 ```
 
-- help people to deploy their work to GH-Page, but need to adjust `publicPath` property first in `webpack.config.prod.js`
+- help people to deploy their work to GH-Page, but you need to create a repository on Github first and  adjust `publicPath` property first in `webpack.config.prod.js`. [good Github Page detail reference on GatsbyJS doc](https://www.gatsbyjs.org/docs/how-gatsby-works-with-github-pages/) <-this script basic work like this 
 ```
 npm run deploy 
 ```
@@ -36,6 +36,7 @@ npm run deploy
 - your IDE must need to install proper lint extension to collaborate with tslint, I use `TypeScript TSLint Plugin` in vs-code
 - use your lint rule in `tslint.json` file. [doc] (https://github.com/palantir/tslint)
 [tslint.json example](https://palantir.github.io/tslint/usage/configuration/)
+- check `tslint` rules [here](https://palantir.github.io/tslint/rules/)
 
 ### learning resource
 - great docs from [Microsoft TypeScript offical website](https://www.typescriptlang.org/index.html)
