@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Styled from 'styled-components'
-import { ITVMazeData, Show, Image } from './entity/TVMazeData'
+import { ITVMazeData, Show, Image } from '../entity/TVMazeData'
 
 interface IState {
   errorMsg: string,
@@ -12,10 +12,10 @@ interface TVMazeProps {
 
 }
 
- const TVMazeShowArticle = Styled.article`
-   text-align:center;
-   margin:10px 30px 10px 30px;
-   border:1px solid #000000;
+const TVMazeShowArticle = Styled.article`
+  text-align:center;
+  margin:10px 30px 10px 30px;
+  border:1px solid #000000;
  `
 
 export default class ListMain extends Component<TVMazeProps, IState> {

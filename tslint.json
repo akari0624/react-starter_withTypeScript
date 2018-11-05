@@ -15,6 +15,7 @@
       {
         "property-declaration": "space"
       }],
+      "no-console": [false],
   "linterOptions": {
     "exclude": [
       "config/**/*.js",

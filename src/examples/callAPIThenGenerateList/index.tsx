@@ -1,5 +1,5 @@
 import React from 'react'
-import TVMazeList from './ListMain'
+import TVMazeList from './components/ListMain'
 
 interface IProps{
 }
