@@ -9,7 +9,7 @@ cd ...
 npm install    # install all the 3rd-Party dependencies
 ```
 
-### mode
+### scripts
 - run your frontend-app with webpack-devServer when you are in develop
 ```
 npm run start
@@ -34,11 +34,11 @@ npm run deploy
 - eslint is not capable for TypeScript 
 - install `tslint` in local or global. if you run `npm install`, you will install `tslint` locally, since I put that dependency in `package.json`
 - your IDE must need to install proper lint extension to collaborate with tslint, I use `TypeScript TSLint Plugin` in vs-code
-- use your lint rule in `tslint.json` file. [doc] (https://github.com/palantir/tslint)
+- use your lint rule in `tslint.json` file. [doc](https://github.com/palantir/tslint)
 [tslint.json example](https://palantir.github.io/tslint/usage/configuration/)
 - check `tslint` rules [here](https://palantir.github.io/tslint/rules/)
 
 ### learning resource
-- great docs from [Microsoft TypeScript offical website](https://www.typescriptlang.org/index.html)
 - [Traversy Media  Crash course](https://www.youtube.com/watch?v=rAy_3SIqT-E)
+- great docs from [Microsoft TypeScript offical website](https://www.typescriptlang.org/index.html)
 - [piotrwitek/react-redux-typescript-guide](https://github.com/piotrwitek/react-redux-typescript-guide/blob/master/README.md)
