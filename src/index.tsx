@@ -5,19 +5,20 @@ import {createStore, applyMiddleware} from 'redux'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import reducers from './reducers'
 
-import indexRoute from './mainpage'
-import counterRoute from './counter'
-
+import IndexRoute from './mainpage'
+import CounterRoute from './counter'
+import TodoMVCRoute from './todos'
+import TVMazeList from './callAPIThenGenerateList'
 
 const createStoreWithMiddleware = applyMiddleware()(createStore)
 
 let appStore: any;
 
-if(process.env.NODE_ENV === 'production'){
+if (process.env.NODE_ENV === 'production'){
 
   appStore = createStoreWithMiddleware(reducers)
 
-}else{
+} else {
   appStore = createStoreWithMiddleware(
     reducers,
     /**  force cast~  https://github.com/zalmoxisus/redux-devtools-extension/issues/134#issuecomment-379861240 */
@@ -29,8 +30,10 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/counter" component={counterRoute}/>
-          <Route path="/" component={indexRoute}/>
+          <Route path="/counter" component={CounterRoute}/>
+          <Route path="/todos" component={TodoMVCRoute}/>
+          <Route path="/tvmaze" component={TVMazeList}/>
+          <Route path="/" component={IndexRoute}/>
         </Switch>
       </div>
     </BrowserRouter>
