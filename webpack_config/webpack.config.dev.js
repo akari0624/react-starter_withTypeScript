@@ -2,14 +2,21 @@
 
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-var ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const webpack = require('webpack');
+const WEBPACK_Config_Base = require('./webpack.config.base');
 
+
+let __LOADERS_ARR;
+if(process.env.NODE_ENV === WEBPACK_Config_Base.NODE_ENV_Keywords.TRANSPILE_WITH_BABEL){
+
+  __LOADERS_ARR = WEBPACK_Config_Base.JS_TRANSPILE_LOADER_ARR_OPTIONS.TS_THEN_BABEL
+
+}else{
+  __LOADERS_ARR = WEBPACK_Config_Base.JS_TRANSPILE_LOADER_ARR_OPTIONS.ONLY_TS_LOADER
+}
 
 module.exports = {
-  entry: [
-    'babel-polyfill', './src/index.tsx'
-  ],
+  entry: WEBPACK_Config_Base.ENTRY_POINT,
   devtool: 'source-map',
   output: {
     path: __dirname,
@@ -26,29 +33,12 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        loader: 'ts-loader',
-        options: {
-          transpileOnly: true // IMPORTANT! use transpileOnly mode to speed-up compilation
-        },
+        use: __LOADERS_ARR,
         exclude: /node_modules/
       },
-      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
+      WEBPACK_Config_Base.ENFORCE_SOURCE_MAP_LOADER,
+      WEBPACK_Config_Base.CSS_LOADER_CONFIG,
       {
-        use: [
-          {
-            loader: 'style-loader'
-          }, {
-            loader: 'css-loader'
-          }, {
-            loader: 'less-loader',
-            options: {
-              javascriptEnabled: true
-            }
-          }
-        ],
-        test: /\.(css|less)$/
-
-      }, {
         use: 'url-loader?limit=8192',
         test: /\.(svg)$/
       }, {
@@ -68,23 +58,15 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: path.resolve(__dirname, 'index.html'),
+      template: path.join(__dirname, '../', 'index.html'),
       filename: './index.html'
     }),
-    new ForkTsCheckerWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin()
-    
   ],
-  resolve: {
-    modules: [
-      path.resolve(__dirname, 'node_modules'),
-      'node_modules'
-    ],
-    extensions: ['.ts', '.tsx', '.js', 'jsx']
-  },
+  resolve: WEBPACK_Config_Base.RESOLVE_SETTING_CONFIG,
   devServer: {
     historyApiFallback: true,
-    contentBase: './',
+    contentBase: path.join(__dirname, '../'),
     port: 9999
   }
 };
