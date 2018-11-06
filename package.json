@@ -5,13 +5,17 @@
   "main": "index.js",
   "repository": "",
   "scripts": {
-    "dev": "webpack-dev-server --public-host --config ./webpack.config.dev.js --mode development ",
+    "dev": "webpack-dev-server --public-host --config ./webpack_config/webpack.config.dev.js --mode development ",
+    "devWithBabel": "NODE_ENV=withBabel webpack-dev-server --public-host --config ./webpack_config/webpack.config.dev.js --mode development ",
     "fastbuild_dev": "webpack-dev-server --public-host --config ./webpack.config.dev.fastbuild.js --mode development ",
-    "clean": "rimraf dist/*",
-    "dist": "NODE_END=production npm run clean && webpack --config ./webpack.config.prod.js --progress --bail --env dist -p",
+    "fastbuild_devWithBabel": "NODE_ENV=withBabel webpack-dev-server --public-host --config ./webpack_config/webpack.config.dev.fastbuild.js --mode development ",
+    "dist": "npm run clean && webpack --config ./webpack_config/webpack.config.prod.js --progress --bail --env dist -p",
+    "distWithBabel": "NODE_ENV=withBabel npm run clean && webpack --config ./webpack_config/webpack.config.prod.js --progress --bail --env dist -p",
+    "deploy": "npm run dist && gh-pages -d dist",
+    "deployWithBabel": "npm run distWithBabel && gh-pages -d dist",
     "test": "mocha --compilers js:babel-core/register --require babel-polyfill ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch",
-    "deploy": "npm run dist && gh-pages -d dist"
+    "clean": "rimraf dist/*"
   },
   "author": "",
   "license": "ISC",
