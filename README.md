@@ -46,6 +46,16 @@ npm run deploy
 [see what can be set](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
 
 
+###  `dev`, `fastbuild_dev`, `dist`, these three scripts have `withBabel` mode
+```
+npm run ${script}WithBabel
+```
+  - this will make webpack build the TypeScript code first time use ts-loader(it use the `tsc` i.e. TypeScript Compiler), generate the compiled JS code then forward them to babel-loader, let it do second time transpile to ensure the javascript code is you think in the `.babelrc`.
+  - `tsc` has the ability to transform TypeScript code to ES5 evne ES3,(set theme up in `tsconfig.json` [target](https://www.typescriptlang.org/docs/handbook/compiler-options.html)) so make babel transpile them again is seems like redundant in most situation, it will make build time longer and make bundled js files bigger.
+   However, babel has its ability that support newest javascript syntax and other features, so these scripts is created for those usage scenario.
+  - @see [1](https://blogs.msdn.microsoft.com/typescript/2018/08/27/typescript-and-babel-7/)  [2](https://github.com/TypeStrong/ts-loader/issues/755)
+
+
 ### about linting
 - eslint is not capable for TypeScript 
 - install `tslint` in local or global. if you run `npm install`, you will install `tslint` locally, since I put that dependency in `package.json`
