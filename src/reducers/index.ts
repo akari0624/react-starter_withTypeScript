@@ -1,10 +1,15 @@
 import { combineReducers } from 'redux'
-
+import TVMazeReducer from './TVMazeDataReducer'
+import { ITVMazeData } from '../examples/redux_callAPIThenGenerateList/entity/TVMazeData'
 
 const rootReducer = combineReducers({
 
-    state:(state= {}) => state
+   tvMazeData: TVMazeReducer,
 })
 
+export interface IAppGlobalState {
+
+    tvMazeData: ITVMazeData[];
+}
 
 export default rootReducer

@@ -4,13 +4,14 @@ import {Provider} from 'react-redux'
 import {createStore, applyMiddleware} from 'redux'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import reducers from './reducers'
-
+import reduxThunk from 'redux-thunk';
 import IndexRoute from './mainpage'
 import CounterRoute from './examples/counter'
 import TodoMVCRoute from './examples/todos'
 import TVMazeList from './examples/callAPIThenGenerateList'
+import TVMazeListRedux from './examples/redux_callAPIThenGenerateList'
 
-const createStoreWithMiddleware = applyMiddleware()(createStore)
+const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)
 
 let appStore: any;
 
@@ -33,6 +34,7 @@ ReactDOM.render(
           <Route path="/counter" component={CounterRoute}/>
           <Route path="/todos" component={TodoMVCRoute}/>
           <Route path="/tvmaze" component={TVMazeList}/>
+          <Route path="/tvmaze_redux" component={TVMazeListRedux}/>
           <Route path="/" component={IndexRoute}/>
         </Switch>
       </div>
