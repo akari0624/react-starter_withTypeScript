@@ -3,7 +3,7 @@ import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import Styled from 'styled-components'
 import { ITVMazeData, Show, Image } from '../entity/TVMazeData'
-import { IAppGlobalState } from '../../../reducers/index'
+import { IAppGlobalState } from '../../../reducers'
 import { acFetchTVMazeData } from '../actions'
 
 interface IState {
@@ -49,7 +49,6 @@ class ListMain extends Component<ITVMazeProps, IState> {
     if (tvMazeData.length === 0) {
       return <div>{`讀取中...`}</div>
     }
- 
     return (
       tvMazeData.map(d => (
         <TVMazeShowArticle  key={d.show.id}>
