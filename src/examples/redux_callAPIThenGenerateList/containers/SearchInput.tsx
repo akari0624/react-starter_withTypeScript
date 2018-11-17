@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Dispatch, bindActionCreators } from 'redux'
 import Styled from 'styled-components'
-import { ITVMazeData } from '../entity/TVMazeData'
 
 import { acFetchTVMazeData } from '../actions'
 
