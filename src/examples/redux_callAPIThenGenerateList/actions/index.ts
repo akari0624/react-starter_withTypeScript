@@ -17,5 +17,15 @@ export const acFetchTVMazeData: ActionCreator<
 
   const pResult = axios.get(`${tvmazeBaseURL}${searchText}`)
 
-  pResult.then(res => dispatch({type: CONSTANTS.FETCH_TVMAZE_DATA, payload: res.data})).catch(err => console.log(err))
+  pResult.then(({data}) => {
+
+      if (data.errorMsg) {
+        dispatch({type: CONSTANTS.ERROR_MSG, payload: data.errorMsg})
+      } else {
+
+        dispatch({type: CONSTANTS.FETCH_TVMAZE_DATA, payload: data})
+      }
+
+     })
+          .catch(err => dispatch({type: CONSTANTS.ERROR_MSG, payload: err}))
 }

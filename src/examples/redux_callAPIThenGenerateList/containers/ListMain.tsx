@@ -11,6 +11,7 @@ interface IState {
 
 interface ITVMazeProps {
   tvMazeData: ITVMazeData[];
+  errorMsg: string,
   acFetchTVMazeData: (searchText: string) => void;
 }
 
@@ -75,8 +76,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => (
 
 )
 
-const mapStateToProps = ({tvMazeData}: IAppGlobalState) => (
-  { tvMazeData }
+const mapStateToProps = ({errorMsg, tvMazeData}: IAppGlobalState) => (
+  { errorMsg, tvMazeData }
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListMain)
