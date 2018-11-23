@@ -2,7 +2,7 @@ import axios from 'axios'
 import { ITVMazeData } from '../entity/TVMazeData'
 
 
-const tvmazeBaseURL: string = 'http://api.tvmaze.com/search/shows?q='
+const tvmazeBaseURL: string = 'https://api.tvmaze.com/search/shows?q='
 
 export const getTVMazeData = (
   serachWords: string,

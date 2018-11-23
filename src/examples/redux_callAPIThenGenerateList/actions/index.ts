@@ -4,7 +4,7 @@ import CONSTANTS from '../types'
 
 import axios from 'axios'
 import { ThunkAction } from 'redux-thunk';
-const tvmazeBaseURL : string = 'http://api.tvmaze.com/search/shows?q='
+const tvmazeBaseURL : string = 'https://api.tvmaze.com/search/shows?q='
 
 export interface IActionFetchTVMazeData {
   type: string,
