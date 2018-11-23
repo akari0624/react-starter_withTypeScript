@@ -53,12 +53,14 @@ npm run ${script}WithBabel
   - this will make webpack build the TypeScript code first time use ts-loader(it use the `tsc` i.e. TypeScript Compiler), generate the compiled JS code then forward them to babel-loader, let it do second time transpile to ensure the javascript code is you think in the `.babelrc`.
   - `tsc` has the ability to transform TypeScript code to ES5 evne ES3,(set theme up in `tsconfig.json` [target](https://www.typescriptlang.org/docs/handbook/compiler-options.html)) so make babel transpile them again is seems like redundant in most situation, it will make build time longer and make bundled js files bigger.
    However, babel has its ability that support newest javascript syntax and other features, so these scripts is created for those usage scenario.
-  - @see [1](https://blogs.msdn.microsoft.com/typescript/2018/08/27/typescript-and-babel-7/)  [2](https://github.com/TypeStrong/ts-loader/issues/755)
+  - @see 
+    - [typescript-and-babel-7](https://blogs.msdn.microsoft.com/typescript/2018/08/27/typescript-and-babel-7/)
+    - [ts-loader-issues-755](https://github.com/TypeStrong/ts-loader/issues/755)
 
 
 ### about linting
 - eslint is not capable for TypeScript 
-- install `tslint` in local or global. if you run `npm install`, you will install `tslint` locally, since I put that dependency in `package.json`
+- install `tslint` in local or global(/usr/local/bin). if you run `npm install`, you will install `tslint` locally, since I put that dependency in `package.json`
 - your IDE must need to install proper lint extension to collaborate with tslint, I use `TypeScript TSLint Plugin` in vs-code
 - use your lint rule in `tslint.json` file. [doc](https://github.com/palantir/tslint)
 [tslint.json example](https://palantir.github.io/tslint/usage/configuration/)
@@ -70,8 +72,8 @@ npm run ${script}WithBabel
 -  react components always contain `JSX` syntax, in TypeScript environment, the extension of these files must need to be `.tsx`.
 - simple js file , their extension must need to be `.ts`.
 
-### see my easy but pratical example
-- checkout `examples` branch to see the example code
+### see my easy but practical example
+- checkout to `examples` branch to see the example code
 ``` shell
   git checkout examples
 ```
