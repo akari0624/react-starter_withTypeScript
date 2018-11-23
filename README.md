@@ -70,6 +70,14 @@ npm run ${script}WithBabel
 -  react components always contain `JSX` syntax, in TypeScript environment, the extension of these files must need to be `.tsx`.
 - simple js file , their extension must need to be `.ts`.
 
+### see my easy but pratical example
+- checkout `examples` branch to see the example code
+``` shell
+  git checkout examples
+```
+- or see them on Github directly
+  [examples branch](https://github.com/akari0624/react-starter_withTypeScript/tree/examples)
+
 
 ### TypeScript learning resource
 - [Traversy Media  Crash course](https://www.youtube.com/watch?v=rAy_3SIqT-E)
