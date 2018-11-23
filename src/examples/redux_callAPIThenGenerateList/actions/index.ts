@@ -15,17 +15,20 @@ export const acFetchTVMazeData: ActionCreator<
     ThunkAction<void, null, null, IActionFetchTVMazeData>
   > = (searchText : string) => (dispatch: Dispatch<IActionFetchTVMazeData>) => {
 
+    try {
   const pResult = axios.get(`${tvmazeBaseURL}${searchText}`)
 
   pResult.then(({data}) => {
 
-      if (data.errorMsg) {
-        dispatch({type: CONSTANTS.ERROR_MSG, payload: data.errorMsg})
-      } else {
-
         dispatch({type: CONSTANTS.FETCH_TVMAZE_DATA, payload: data})
-      }
 
      })
-          .catch(err => dispatch({type: CONSTANTS.ERROR_MSG, payload: err}))
+          .catch(err => dispatch({type: CONSTANTS.ERROR_MSG, payload: `發生錯誤:${err}`}))
+    } catch (err) {
+
+      dispatch({type: CONSTANTS.ERROR_MSG, payload: '目前沒有網路連線'})
+    }
 }
+
+export const removeErrorMsgWhenCloseErrorMsgAlert: ActionCreator<IActionFetchTVMazeData> =
+    () => ({type: CONSTANTS.ERROR_MSG, payload: ''})

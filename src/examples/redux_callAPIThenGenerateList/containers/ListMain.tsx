@@ -4,15 +4,18 @@ import { connect } from 'react-redux'
 import Styled from 'styled-components'
 import { ITVMazeData, Show, Image } from '../entity/TVMazeData'
 import { IAppGlobalState } from '../../../reducers'
-import { acFetchTVMazeData } from '../actions'
+import { acFetchTVMazeData, removeErrorMsgWhenCloseErrorMsgAlert } from '../actions'
+import { Alert } from 'antd'
+import 'antd/lib/alert/style'
 
 interface IState {
 }
 
 interface ITVMazeProps {
   tvMazeData: ITVMazeData[];
-  errorMsg: string,
+  errorMsg: string;
   acFetchTVMazeData: (searchText: string) => void;
+  removeErrorMsgWhenCloseErrorMsgAlert: () => void;
 }
 
 const TVMazeShowArticle = Styled.article`
@@ -61,10 +64,34 @@ class ListMain extends Component<ITVMazeProps, IState> {
     )
   }
 
+  onErrorMsgAlertClose = (evt: React.MouseEvent<HTMLAnchorElement>): void => {
+
+    this.props.removeErrorMsgWhenCloseErrorMsgAlert()
+
+  }
+
+  isRenderingAlert = (errorMsg: string) => {
+
+    if (errorMsg) {
+      return (
+        <Alert type="error"
+               message={errorMsg}
+               banner
+               closable
+               onClose={this.onErrorMsgAlertClose}
+        />
+              )
+    }
+
+  }
+
   render() {
+
+    const {errorMsg, tvMazeData} = this.props
     return (
       <React.Fragment>
-        {this.renderTVMazeList(this.props.tvMazeData)}
+        {this.isRenderingAlert(errorMsg)}
+        {this.renderTVMazeList(tvMazeData)}
       </React.Fragment>
     )
   }
@@ -72,7 +99,7 @@ class ListMain extends Component<ITVMazeProps, IState> {
 
 const mapDispatchToProps = (dispatch: Dispatch) => (
 
-  bindActionCreators({ acFetchTVMazeData }, dispatch)
+  bindActionCreators({ acFetchTVMazeData, removeErrorMsgWhenCloseErrorMsgAlert }, dispatch)
 
 )
 
