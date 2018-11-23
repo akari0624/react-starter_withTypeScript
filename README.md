@@ -42,7 +42,7 @@ npm run deploy
 
 
 ### tsconfig.json - the config file of TypeScript
-- most import part - compilerOptions
+- most important part - compilerOptions
 [see what can be set](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
 
 
