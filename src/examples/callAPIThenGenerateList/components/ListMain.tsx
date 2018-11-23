@@ -53,7 +53,7 @@ export default class ListMain extends Component<ITVMazeProps, IState> {
         <TVMazeShowArticle  key={d.show.id}>
           <div>{d.show.name}</div>
           <div>{this.renderImage(d.show)}</div>
-          <div>{d.show.summary}</div>
+          <div dangerouslySetInnerHTML={{__html: d.show.summary}} />
         </TVMazeShowArticle>)
       )
     )
