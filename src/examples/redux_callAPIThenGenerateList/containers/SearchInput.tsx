@@ -13,6 +13,10 @@ interface ISearchInputProps {
   acFetchTVMazeData: (searchText: string) => void,
 }
 
+const SearchInputAreaWrapper = Styled.div`
+  text-align:center;
+`
+
 const SearchInputTextBar = Styled.input`
   width:80%;
   height:40px;
@@ -63,12 +67,12 @@ class SearchInput extends Component<ISearchInputProps, ISearchInputState> {
 
   render() {
     return (
-      <div>
+      <SearchInputAreaWrapper>
         <form onSubmit={this.onInputEnterPressDown} >
           <SearchInputTextBar type="text" onChange={this.onSearchTextInput} value={this.state.searchTerm}/>
           <ExecuteSearchButton onClick={this.handleGetTVMazeData} >{`Search`}</ExecuteSearchButton>
         </form>
-      </div>
+      </SearchInputAreaWrapper>
     )
   }
 }
