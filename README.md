@@ -51,8 +51,12 @@ npm run deploy
 npm run ${script}WithBabel
 ```
   - this will make webpack build the TypeScript code first time use ts-loader(it use the `tsc` i.e. TypeScript Compiler), generate the compiled JS code then forward them to babel-loader, let it do second time transpile to ensure the javascript code is you think in the `.babelrc`.
-  - `tsc` has the ability to transform TypeScript code to ES5 evne ES3,(set theme up in `tsconfig.json` [target](https://www.typescriptlang.org/docs/handbook/compiler-options.html)) so make babel transpile them again is seems like redundant in most situation, it will make build time longer and make bundled js files bigger.
-   However, babel has its ability that support newest javascript syntax and other features, so these scripts is created for those usage scenario.
+  - `tsc` has the ability to transform TypeScript code to ES5 evne ES3,(set theme up in `tsconfig.json` [target](https://www.typescriptlang.org/docs/handbook/compiler-options.html)),
+  but what we need to realize is, `tsc` is a transpiler, it only do transpile but not doing `polyfill`,
+  [reference](https://github.com/frankwallis/plugin-typescript/issues/166#issuecomment-253413831)  
+  if you need to support old browser that their js engine don't support `ES6`, you still need to find 
+  a way to see what special function you use (e.g `Promise`, `async await`, `spread operator`...), and put on their corresponding polyfill, so even babel will make build time longer and make bundled js files bigger, it is a suitable solution if you need to support browser doesn't recognize ES6.
+  And babel has its ability that support newest javascript syntax and other features, so these scripts created for those usage scenario.
   - @see 
     - [typescript-and-babel-7](https://blogs.msdn.microsoft.com/typescript/2018/08/27/typescript-and-babel-7/)
     - [ts-loader-issues-755](https://github.com/TypeStrong/ts-loader/issues/755)
