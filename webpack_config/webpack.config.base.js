@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
 
   ENTRY_POINT: [
-    'babel-polyfill', path.join(__dirname, '../', './src/index.tsx')
+    '@babel/polyfill', path.join(__dirname, '../', './src/index.tsx')
   ],
 
   JS_TRANSPILE_LOADER_ARR_OPTIONS:{
