@@ -19,9 +19,9 @@ module.exports = {
   entry: WEBPACK_Config_Base.ENTRY_POINT,
   output: {
     path: path.join(__dirname, '../', 'dist'),
-    publicPath: '/react-starter_withTypeScript', // your webApp name(if has) on server put here.   eg:/MyWebApp
     filename: '[name].[chunkhash].js',
-    chunkFilename: '[name].[chunkhash].js'
+    chunkFilename: '[name].[chunkhash].js',
+    publicPath: '/react-starter_withTypeScript/', // your webApp name(if has) on server put here.   eg:/MyWebApp
   },
 
   module: {
@@ -48,7 +48,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[path][name].[ext]',
-              publicPath: '/react-starter_withTypeScript' // your webApp name(if has) on server put here.   eg:/MyWebApp
+              publicPath: '/react-starter_withTypeScript/' // your webApp name(if has) on server put here.   eg:/MyWebApp
             }
           }
         ]

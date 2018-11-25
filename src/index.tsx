@@ -6,10 +6,10 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import reducers from './reducers'
 import reduxThunk from 'redux-thunk';
 import IndexRoute from './mainpage'
-import CounterRoute from './examples/counter'
-import TodoMVCRoute from './examples/todos'
-import TVMazeList from './examples/callAPIThenGenerateList'
-import TVMazeListRedux from './examples/redux_callAPIThenGenerateList'
+import CounterRoute from './examples/counter/forSpliting'
+import TodoMVCRoute from './examples/todos/forSpliting'
+import TVMazeList from './examples/callAPIThenGenerateList/forSpliting'
+import TVMazeListRedux from './examples/redux_callAPIThenGenerateList/forSpliting'
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)
 
