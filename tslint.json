@@ -1,13 +1,24 @@
 {
-  "extends": ["tslint:recommended"],
+  "extends": [
+    "tslint-config-airbnb",
+    "tslint-react"
+  ],
   "rules": {
     "semicolon":false,
     "quotemark":[true, "single", "jsx-double"],
     "indent": [true, "spaces", 2],
     "arrow-parens": [true, "ban-single-arg-parens"],
     "ordered-imports": false,
-    "member-access": [true, "no-public"]
-  },
+    "member-access": [true, "no-public"],
+    "typedef-whitespace": [
+      true,
+      {
+        "property-declaration": "nospace"
+      },
+      {
+        "property-declaration": "space"
+      }],
+      "no-console": [false],
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
@@ -15,4 +26,4 @@
       "dist/**"
     ]
   }
-}
+}}
