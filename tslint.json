@@ -1,5 +1,8 @@
 {
-  "extends": ["tslint:recommended"],
+  "extends": [
+    "tslint-config-airbnb",
+    "tslint-react"
+  ],
   "rules": {
     "semicolon":false,
     "quotemark":[true, "single", "jsx-double"],
