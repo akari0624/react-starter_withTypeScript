@@ -48,7 +48,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[path][name].[ext]',
-              publicPath: '/react-starter_withTypeScript/' // your webApp name(if has) on server put here.   eg:/MyWebApp
+              publicPath: '/react-starter_withTypeScript' // your webApp name(if has) on server put here.   eg:/MyWebApp
             }
           }
         ]
