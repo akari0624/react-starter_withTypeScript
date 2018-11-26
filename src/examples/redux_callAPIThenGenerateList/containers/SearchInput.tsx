@@ -36,14 +36,15 @@ class SearchInput extends Component<ISearchInputProps, ISearchInputState> {
     searchTerm: '',
    }
 
-   constructor(props: ISearchInputProps) {
+  constructor(props: ISearchInputProps) {
     super(props)
  }
 
-  onSearchTextInput = (e: any) => {
+  onSearchTextInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
 
+    const textInput = e.target
     this.setState({
-      searchTerm: e.target.value,
+      searchTerm: textInput.value,
     })
   }
 
@@ -57,7 +58,7 @@ class SearchInput extends Component<ISearchInputProps, ISearchInputState> {
     this.props.acFetchTVMazeData(searchTerm)
   }
 
-  onInputEnterPressDown = (e: any) => {
+  onInputEnterPressDown = (e: React.FormEvent<HTMLFormElement>): void => {
 
    e.preventDefault()
 
