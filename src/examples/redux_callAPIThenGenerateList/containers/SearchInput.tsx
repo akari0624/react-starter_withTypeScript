@@ -1,17 +1,34 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import { Dispatch, bindActionCreators } from 'redux'
 import Styled from 'styled-components'
 
-import { acFetchTVMazeData } from '../actions'
+import { acFetchTVMazeData, IActionFetchTVMazeData } from '../actions'
+// import { connect } from '../../../utils_func/decorator_utils';
+import { connect } from 'react-redux'
+import { IAppGlobalState } from '../../../reducers'
 
-interface ISearchInputState {
+interface SearchInputState {
   searchTerm: string,
 }
 
-interface ISearchInputProps {
+
+interface OwnProps {}
+
+
+interface DispatchProps {
   acFetchTVMazeData: (searchText: string) => void,
 }
+
+interface PropsFromAppState {}
+
+// interface SearchInputProps {
+//   // dispatchProps: DispatchProps,
+//   // ownProps: OwnProps,
+//   acFetchTVMazeData: (searchText: string) => void,
+// }
+
+type MergedProps = DispatchProps & PropsFromAppState & OwnProps;
 
 const SearchInputAreaWrapper = Styled.div`
   text-align:center;
@@ -30,15 +47,27 @@ const ExecuteSearchButton = Styled.a`
   cursor:pointer;
 `
 
-class SearchInput extends Component<ISearchInputProps, ISearchInputState> {
+export function mapStateToProps(state: IAppGlobalState): PropsFromAppState {
+  return { };
+}
 
-   readonly state: ISearchInputState = {
+export function mapDispatchToProps(dispatch: Dispatch<IActionFetchTVMazeData>):DispatchProps {
+ return bindActionCreators(
+    { acFetchTVMazeData }, dispatch)
+    }
+
+// Line 41 is same as Line 96, change to use ESNext Decorator way
+// @connect(mapStateToProps, mapDispatchToProps)
+//export default 
+class SearchInput extends Component<MergedProps, SearchInputState> {
+
+  readonly state: SearchInputState = {
     searchTerm: '',
-   }
+  }
 
-  constructor(props: ISearchInputProps) {
+  constructor(props: MergedProps) {
     super(props)
- }
+  }
 
   onSearchTextInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
 
@@ -49,7 +78,7 @@ class SearchInput extends Component<ISearchInputProps, ISearchInputState> {
   }
 
   handleGetTVMazeData = () => {
-    const {searchTerm} = this.state
+    const { searchTerm } = this.state
 
     if (!searchTerm) {
       return
@@ -70,7 +99,11 @@ class SearchInput extends Component<ISearchInputProps, ISearchInputState> {
     return (
       <SearchInputAreaWrapper>
         <form onSubmit={this.onInputEnterPressDown} >
-          <SearchInputTextBar type="text" onChange={this.onSearchTextInput} value={this.state.searchTerm}/>
+          <SearchInputTextBar
+              type="text"
+              onChange={this.onSearchTextInput}
+              value={this.state.searchTerm}
+          />
           <ExecuteSearchButton onClick={this.handleGetTVMazeData} >{`Search`}</ExecuteSearchButton>
         </form>
       </SearchInputAreaWrapper>
@@ -78,11 +111,7 @@ class SearchInput extends Component<ISearchInputProps, ISearchInputState> {
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch) => (
-  bindActionCreators(
-  {
-    acFetchTVMazeData,
-  }, dispatch)
-)
+
 
 export default connect(null, mapDispatchToProps)(SearchInput)
+

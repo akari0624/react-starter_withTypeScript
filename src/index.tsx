@@ -10,6 +10,7 @@ import CounterRoute from './examples/counter/forSpliting'
 import TodoMVCRoute from './examples/todos/forSpliting'
 import TVMazeList from './examples/callAPIThenGenerateList/forSpliting'
 import TVMazeListRedux from './examples/redux_callAPIThenGenerateList/forSpliting'
+import DecoratorTest from './examples/decorator_example'
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)
 
@@ -26,6 +27,8 @@ if (process.env.NODE_ENV === 'production') {
     (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__())
 }
 
+
+//  <Route path="/decorator_test" component={DecoratorTest}/>
 ReactDOM.render(
   <Provider store={appStore}>
     <BrowserRouter>
@@ -35,6 +38,7 @@ ReactDOM.render(
           <Route path="/todos" component={TodoMVCRoute}/>
           <Route path="/tvmaze" component={TVMazeList}/>
           <Route path="/tvmaze_redux" component={TVMazeListRedux}/>
+         
           <Route path="/" component={IndexRoute}/>
         </Switch>
       </div>

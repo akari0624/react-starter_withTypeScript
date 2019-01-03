@@ -7,7 +7,6 @@ import { IAppGlobalState } from '../../../reducers'
 import { acFetchTVMazeData, removeErrorMsgWhenCloseErrorMsgAlert } from '../actions'
 import { Alert } from 'antd'
 import 'antd/lib/alert/style'
-
 interface IState {
 }
 
