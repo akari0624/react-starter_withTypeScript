@@ -10,10 +10,10 @@ const WEBPACK_Config_Base = require('./webpack.config.base');
 let __LOADERS_ARR;
 if(process.env.NODE_ENV === WEBPACK_Config_Base.NODE_ENV_Keywords.TRANSPILE_WITH_BABEL){
 
-  __LOADERS_ARR = WEBPACK_Config_Base.JS_TRANSPILE_LOADER_ARR_OPTIONS.TS_THEN_BABEL
+  __LOADERS_ARR = WEBPACK_Config_Base.JS_TRANSPILE_LOADER_ARR_OPTIONS.TS_THEN_BABEL_FAST_BUILD
 
 }else{
-  __LOADERS_ARR = WEBPACK_Config_Base.JS_TRANSPILE_LOADER_ARR_OPTIONS.ONLY_TS_LOADER
+  __LOADERS_ARR = WEBPACK_Config_Base.JS_TRANSPILE_LOADER_ARR_OPTIONS.ONLY_TS_LOADER_FAST_BUILD
 }
 
 module.exports = {
@@ -35,9 +35,6 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loader: __LOADERS_ARR,
-        options: {
-          transpileOnly: true // IMPORTANT! use transpileOnly mode to speed-up compilation
-        },
         exclude: /node_modules/
       },
 
