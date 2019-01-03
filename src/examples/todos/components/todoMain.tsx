@@ -6,9 +6,14 @@ interface IProps {
   dataArr: ITodos[]
 }
 
-const renderTodoList = (dataArr: ITodos[]) => (dataArr.map(d => <div>{d.todoDesc}</div>))
+interface IState {
 
-export default function todoMain(props: IProps) {
+  dataArr: ITodos[]
+}
+
+const renderTodoList = (dataArr: ITodos[]) => (dataArr.map((d, index) => <div key={d.todoDesc+index}>{d.todoDesc}</div>))
+
+export default function todoMain(props: IProps, state: IState) {
 
 
    const result = doThingsDependOnShape({ name:'circle', radius:20 })

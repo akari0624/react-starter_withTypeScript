@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 import TodoMain from './components/todoMain'
+import AddTodoInput from './components/AddTodoInput'
 import { Todos }  from './entity/modelClass'
 
 interface IProps {}
@@ -10,7 +11,43 @@ const testData: Todos[] = [
   new Todos('test webpack'),
 ]
 
-export default(props: IProps) => {
+interface IState {
+  dataArr: Todos[],
+}
 
-  return <TodoMain  dataArr={testData} />
+interface IProps {
+  // dataArr: Todos[],
+}
+
+export default class TodoAppIndex extends Component<IProps, IState> {
+
+
+  readonly state: IState = {
+
+    dataArr: testData,
+
+  }
+
+  constructor(props: IProps) {
+    super(props)
+
+  }
+
+  addNewTodo = (newTodo: Todos) => {
+    this.setState(prevState => {
+      return {
+
+        dataArr: [...prevState.dataArr, newTodo]
+      }
+    })
+  }
+
+  render(){
+    return (
+      <React.Fragment>
+        <AddTodoInput addNewTodo={this.addNewTodo}/>
+        <TodoMain  dataArr={this.state.dataArr} />
+      </React.Fragment>
+    )
+  }
 }
