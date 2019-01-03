@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "webpack-dev-server --public-host --config ./webpack_config/webpack.config.dev.js --mode development ",
     "devWithBabel": "NODE_ENV=withBabel webpack-dev-server --public-host --config ./webpack_config/webpack.config.dev.js --mode development ",
-    "fastbuild_dev": "webpack-dev-server --public-host --config ./webpack.config.dev.fastbuild.js --mode development ",
+    "fastbuild_dev": "webpack-dev-server --public-host --config ./webpack_config/webpack.config.dev.fastbuild.js --mode development ",
     "fastbuild_devWithBabel": "NODE_ENV=withBabel webpack-dev-server --public-host --config ./webpack_config/webpack.config.dev.fastbuild.js --mode development ",
     "dist": "npm run clean && webpack --config ./webpack_config/webpack.config.prod.js --progress --bail --env dist -p",
     "distWithBabel": "NODE_ENV=withBabel npm run clean && webpack --config ./webpack_config/webpack.config.prod.js --progress --bail --env dist -p",

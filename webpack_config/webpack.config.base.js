@@ -11,6 +11,8 @@ module.exports = {
   JS_TRANSPILE_LOADER_ARR_OPTIONS:{
     ONLY_TS_LOADER:[{loader:'ts-loader'}],
     TS_THEN_BABEL:[{loader:'babel-loader'},{loader:'ts-loader'}],
+    ONLY_TS_LOADER_FAST_BUILD: [{loader:'ts-loader', options:{transpileOnly: true}}], // IMPORTANT! use transpileOnly mode to speed-up compilation},
+    TS_THEN_BABEL_FAST_BUILD:[{loader:'babel-loader'},{loader:'ts-loader', options:{transpileOnly: true}}],
   },
 
   CSS_LOADER_CONFIG: {
