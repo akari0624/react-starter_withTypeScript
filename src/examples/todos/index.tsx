@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TodoMain from './components/todoMain'
+import TodoListArea from './components/todoMain'
 import AddTodoInput from './components/AddTodoInput'
 import { Todos }  from './entity/modelClass'
 
@@ -13,6 +13,7 @@ const testData: Todos[] = [
 
 interface IState {
   dataArr: Todos[],
+  editingTodoIndex: number,
 }
 
 interface IProps {
@@ -25,7 +26,8 @@ export default class TodoAppIndex extends Component<IProps, IState> {
   readonly state: IState = {
 
     dataArr: testData,
-
+    editingTodoIndex: null,
+    
   }
 
   constructor(props: IProps) {
@@ -42,11 +44,22 @@ export default class TodoAppIndex extends Component<IProps, IState> {
     })
   }
 
+  changeEditingTodoIndex = (newIndex: number) => {
+
+    this.setState(prevState => ({
+      editingTodoIndex: newIndex,
+    }))
+  }
+
   render(){
     return (
       <React.Fragment>
         <AddTodoInput addNewTodo={this.addNewTodo}/>
-        <TodoMain  dataArr={this.state.dataArr} />
+        <TodoListArea
+          dataArr={this.state.dataArr} 
+          editingTodoIndex={this.state.editingTodoIndex} 
+          changeEditingTodoIndex={this.changeEditingTodoIndex} 
+        />
       </React.Fragment>
     )
   }

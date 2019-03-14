@@ -1,9 +1,13 @@
 import React from 'react'
 import { ITodos } from '../entity/modalInterface'
 import { doThingsDependOnShape } from '../../../utils_func/others'
+import TodoItem from './TodoItem'
+import TodoItemInEditing from './ToDoItemInEditing'
 
 interface IProps {
-  dataArr: ITodos[]
+  dataArr: ITodos[],
+  editingTodoIndex: number,
+  changeEditingTodoIndex: (newEditingIndex:number) => void
 }
 
 interface IState {
@@ -11,7 +15,18 @@ interface IState {
   dataArr: ITodos[]
 }
 
-const renderTodoList = (dataArr: ITodos[]) => (dataArr.map((d, index) => <div key={d.todoDesc+index}>{d.todoDesc}</div>))
+const renderTodoList = (dataArr: ITodos[], changeEditingTodoIndex: (newEditingIndex:number) => void, editingTodoIndex: number) => 
+  dataArr.map((d, index) => 
+    {
+      if(index === editingTodoIndex){
+         return <TodoItemInEditing key={d.todoDesc+index} data={d} indexInArr={index} changeEditingTodoIndex={changeEditingTodoIndex} />
+      }
+      return <TodoItem key={d.todoDesc+index} data={d} indexInArr={index} changeEditingTodoIndex={changeEditingTodoIndex}/>
+    }
+  )
+
+
+
 
 export default function todoMain(props: IProps, state: IState) {
 
@@ -21,7 +36,7 @@ export default function todoMain(props: IProps, state: IState) {
 
   return (
     <div>
-      {renderTodoList(props.dataArr)}
+      {renderTodoList(props.dataArr, props.changeEditingTodoIndex, props.editingTodoIndex)}
       {result}
     </div>
   )
