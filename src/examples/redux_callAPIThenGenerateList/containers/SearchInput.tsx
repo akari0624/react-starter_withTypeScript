@@ -113,5 +113,5 @@ class SearchInput extends Component<MergedProps, SearchInputState> {
 
 
 
-export default connect(null, mapDispatchToProps)(SearchInput)
+export default connect<PropsFromAppState, DispatchProps, OwnProps>(null, mapDispatchToProps)(SearchInput)
 

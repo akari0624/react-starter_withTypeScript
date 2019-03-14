@@ -10,12 +10,19 @@ import 'antd/lib/alert/style'
 interface IState {
 }
 
-interface ITVMazeProps {
-  tvMazeData: ITVMazeData[];
-  errorMsg: string;
+interface DispatchProps {
   acFetchTVMazeData: (searchText: string) => void;
   removeErrorMsgWhenCloseErrorMsgAlert: () => void;
 }
+
+interface FromReduxSataeProps {
+  tvMazeData: ITVMazeData[];
+  errorMsg: string;
+}
+
+interface OwnProps {}
+
+type ITVMazeProps = FromReduxSataeProps & DispatchProps & OwnProps
 
 const TVMazeShowArticle = Styled.article`
   text-align:center;
@@ -106,4 +113,4 @@ const mapStateToProps = ({errorMsg, tvMazeData}: IAppGlobalState) => (
   { errorMsg, tvMazeData }
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListMain)
+export default connect<FromReduxSataeProps, DispatchProps, OwnProps>(mapStateToProps, mapDispatchToProps)(ListMain)
