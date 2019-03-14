@@ -3,10 +3,10 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
-    "lib":["es2015", "dom"],
-    "module": "esnext",
+    "lib":["DOM", "ES6"],
+    "module": "commonjs",
     "experimentalDecorators": true,
-    "target": "es2017",
+    "target": "es5",
     "jsx": "react",
     "allowJs": false,
     "allowSyntheticDefaultImports": true,  /* allow the import syntax don't need to be `import * as React from 'react'`*/
