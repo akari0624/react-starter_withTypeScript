@@ -17,7 +17,7 @@ npm install    # install all the 3rd-Party dependencies
 ```
 npm run dev
 ```
-  - run your frontend-app with webpack-devServer when you are in develop
+  - run your frontend-app with webpack-devServer when you are in developing
 
 
 ```
@@ -63,8 +63,8 @@ npm run ${script}WithBabel
 
 
 ### about linting
-- eslint is not capable for TypeScript 
-- install `tslint` in local or global(/usr/local/bin). if you run `npm install`, you will install `tslint` locally, since I put that dependency in `package.json`
+- `eslint` is not capable for TypeScript 
+- install `tslint` in local or global(/path/to/your/node/bin). if you run `npm install`, you will install `tslint` locally, since I put that dependency in `package.json`
 - your IDE must need to install proper lint extension to collaborate with tslint, I use `TypeScript TSLint Plugin` in vs-code
 - use your lint rule in `tslint.json` file. [doc](https://github.com/palantir/tslint)
 [tslint.json example](https://palantir.github.io/tslint/usage/configuration/)
