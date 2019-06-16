@@ -14,7 +14,7 @@
     "deploy": "npm run dist && gh-pages -d dist",
     "deployWithBabel": "npm run distWithBabel && gh-pages -d dist",
     "test": "mocha --compilers js:babel-core/register --require babel-polyfill ./test/test_helper.js --recursive ./test",
-    "test_ts": "--require ts-node/register './test/**/*.{ts, tsx}'", 
+    "test_ts": "mocha --require ts-node/register './test/**/*.{ts, tsx}'", 
     "test:watch": "npm run test -- --watch",
     "clean": "rimraf dist/*"
   },
