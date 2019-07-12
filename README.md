@@ -63,13 +63,8 @@ npm run ${script}WithBabel
 
 
 ### about linting
-- `eslint` is not capable for TypeScript 
-- install `tslint` in local or global(/path/to/your/node/bin). if you run `npm install`, you will install `tslint` locally, since I put that dependency in `package.json`
-- your IDE must need to install proper lint extension to collaborate with tslint, I use `TypeScript TSLint Plugin` in vs-code
-- use your lint rule in `tslint.json` file. [doc](https://github.com/palantir/tslint)
-[tslint.json example](https://palantir.github.io/tslint/usage/configuration/)
-- check `tslint` rules [here](https://palantir.github.io/tslint/rules/)
-- if you want to run `fastbuild_dev` mode, configuration for `tslint` is essential.
+- this repo has config the `eslint` to `TypeScript` mode, `eslint` has more feature than `tslint`(for example hook validation), so use `eslint` is a correct choice.
+
 
 
 ### write your code
