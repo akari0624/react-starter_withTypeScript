@@ -15,11 +15,9 @@ const MiddleDiv = Styled.div`
 `
 
 export default(props: Props) => {
-
   return (
     <MiddleDiv>
       <h3>Greeting from React with TypeScript + bundle in webpack</h3>
     </MiddleDiv>
   )
-
 }
