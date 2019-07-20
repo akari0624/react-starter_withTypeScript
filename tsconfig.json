@@ -3,7 +3,8 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "es6",
+     /* 原本是es6, 改成commonjs是因為 為了好跑test, 不然ts-node 把ts compile成 js之後， node還是看不懂export, import 那樣的語法 **/
+    "module": "commonjs",
     "target": "es5",
     "jsx": "react",
     "allowJs": true,
