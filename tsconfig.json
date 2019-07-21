@@ -13,6 +13,7 @@
     "moduleResolution": "node"             /* make ts compiler include type definitions linked in package.json files*/
   },
   "include": [
-    "./src"
+    "./src",
+    "./assets"
 ]
 }
